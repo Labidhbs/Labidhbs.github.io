@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Pagina</title>
+  <script src="js/qrcode.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="qrpagina">
+
+  <header class="header-container">
+    <img src="logo1.svg" alt="Logo Links" class="logo" onerror="this.style.visibility='hidden'">
+    <div id="target-link" class="title-text">https://example.com</div>
+    <img src="logo2.svg" alt="Logo Rechts" class="logo logo-right" onerror="this.style.visibility='hidden'">
+  </header>
+
+  <main class="qr-wrapper">
+    <div id="qrcode" class="qr-code"></div>
+  </main>
+
+  <script>
+    const targetUrl = document.getElementById('target-link').innerText;
+
+    new QRCode(document.getElementById('qrcode'), {
+      text: targetUrl,
+      width: 512,
+      height: 512,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+  </script>
+
+</body>
+</html>
